@@ -10,13 +10,16 @@ h2 {
 }
 .container {
  /* border: 1px solid red; */
- width: 1000px;
+ max-width: 1000px;
+ /* width: 100%;*/
+ flex: 1;
  margin: 0 auto;
  display: inherit;
  justify-content: inherit;
  align-items: inherit;
  height: inherit;
  flex-wrap: inherit;
+ padding: 0 1em;
 }
 .header {
   background-color: #1b2127;
@@ -24,6 +27,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  flex-wrap: wrap;
 }
 
 ol, li {
@@ -91,6 +95,7 @@ h1,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .hero-image {
   object-fit: cover;
@@ -101,23 +106,29 @@ h1,
 }
 
 
+.event-imageContainer {
+  width: 100%;
+}
 
 .proyect-details,
-.proyect-imageContainer,
-.event-imageContainer {
-  width: 500px;
+.proyect-imageContainer {
+  width: 50%;
+}
+.proyect-imageContainer img {
+  max-width: 100%;
 }
 
 .proyect {
   border: 1px solid gray;
   border-radius: 10px;
-  margin: 10px;
+  /* margin: 10px; */
   margin-bottom: 15px;
   padding: 20px;
   background: white;
   display: flex;
   align-content: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .proyect-title {
@@ -139,6 +150,7 @@ h1,
  display: flex;
  align-items: center;
  justify-content: space-between;
+ flex-wrap: wrap;
 }
 
 .footer img {
@@ -157,8 +169,8 @@ h1,
   margin-left: 20px;
 }
 .event {
-  margin: 10px;
-  width: 480px;
+  margin: 1%;
+  width: 48%;
   border-radius: 10px;
   flex-shrink: 0;
   overflow: hidden;
@@ -167,6 +179,8 @@ h1,
 .event img {
  width: 480px;
  height: 200px;
+
+ /* height: 100%; */
  object-fit: cover;
 }
 
@@ -197,6 +211,7 @@ h1,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 
@@ -254,7 +269,99 @@ h1,
 }
 
 
+@media screen and (max-width: 767px) {
 
+  .header {
+    display: block;
+    height: auto;
+  }
+
+  .header ol {
+    display: initial;
+  }
+
+  .header ol li {
+    height: 50px;
+  }
+  .header  a {
+    justify-content: center;
+  }
+
+  .logo {
+    text-align: center; 
+  }
+
+ .proyect {
+   display: block;
+ }
+ .proyect-imageContainer,
+ .proyect-details {
+   width: auto;
+ }
+
+ .proyect-imageContainer {
+   text-align: center;
+ }
+
+ .proyect-title {
+  font-size:  2em;
+  margin-bottom: .3em;
+ }
+.proyect-course, .proyect-date, .proyect-url {
+  margin: .3em 0;
+}
+ .proyect-course {
+  font-size:  1.7em;
+ }
+ .proyect-url {
+  font-size:  1em;
+ }
+ .proyect-date {
+  font-size:  1em;
+ }
+
+ .proyect-description {
+    font-size:  1em;
+ }
+ .event {
+   width: auto;
+   flex-shrink: initial;
+ }
+
+ .event img {
+   width: 100%;
+ }
+
+}  
+
+@media screen and (max-width: 480px) {
+  .proyect-details {
+    font-size: 12px;
+  }
+
+  .event-detail {
+    margin: -2em .5em .5em;
+    padding: 1em;
+  }
+
+  .contact {
+    height: auto;
+    padding: 1.5em 0;
+    text-align: center;
+    display: block;
+  }
+  .form-email button {
+    margin: 1em auto;
+  }
+
+  .form-email h3 {
+    margin-top: 0;
+  }
+  .footer {
+    display: block;
+    text-align: center;
+  }
+}
 /* 
 reglas // el selector + la declaracoion
 selectores// etiqueta-clase-id-etc
@@ -453,11 +560,25 @@ APRENDÍ COSAS NUEVAS:
 VERTICAL-ALIGN 
 object-fit: cover;
 line-height
+
+
 position
 
 Posicionamiento:
+satic: defecto
 
+con cualquiera que no sea static se desbloquean dos conjuntos de 
+propiedades:
+z-index --> sirve para sobreponer nuestro elemento
+top right bottom left -- > 
+sirven para mover nuestro elemento con coordenadas
+pueden ser negativo 
+left : -10px
+relativo, absoluto, fijo, static.
 
-
+Flex: 
+-flex
+-flex-shrink
+-
 
 */

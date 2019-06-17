@@ -265,9 +265,29 @@ h1,
   font-family: 'Source Sans Pro', sans-serif;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
+@media screen and (max-width: 1024px) {
+  .hero {
+    height: auto;
+    position: relative;
+    padding: 2em;
+  }
+  .hero-image {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  h1 {
+    font-size: 2em;
+    z-index: 2;
+  }
+}
 
 @media screen and (max-width: 767px) {
 
@@ -335,6 +355,9 @@ h1,
 }  
 
 @media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
   .proyect-details {
     font-size: 12px;
   }
@@ -361,6 +384,9 @@ h1,
     display: block;
     text-align: center;
   }
+}
+
+@media screen and (max-width: 480px) {
 }
 /* 
 reglas // el selector + la declaracoion
@@ -575,6 +601,11 @@ sirven para mover nuestro elemento con coordenadas
 pueden ser negativo 
 left : -10px
 relativo, absoluto, fijo, static.
+
+
+fixed: se 
+absolute
+sticky 
 
 Flex: 
 -flex

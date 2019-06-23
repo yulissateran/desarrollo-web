@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<i id="burgerMenu" class="icon-menu burger-button"></i>
   <header class="header">
     <div class="container">
       <figure class="logo">
@@ -17,7 +18,7 @@
       </figure>
       <nav class="menu">
         <ol>
-          <li><a class="link" href="#portfolio">portafolio</a></li>
+          <li><a class="link" href="#portfolio">Portafolio</a></li>
           <li><a class="link" href="#events">Experiencia</a></li>
           <li><a class="link" href="#contact">Trabajemos juntos</a></li>
         </ol>
@@ -26,13 +27,14 @@
   </header>
 
   <main class="main">
-     <section class="hero">
+    <section class="hero">
       <div class="container">
-        <h1>Hola! <br> soy <strong>Leonidas Esteban</strong> <br> Desarrollador Javascript <br>  con pasion por la <strong>enseñanza</strong></h1>
+        <h1>Hola! <br> soy <strong>Leonidas Esteban</strong> <br> Desarrollador Javascript <br> con pasion por la
+          <strong>enseñanza</strong></h1>
         <img class="hero-image" src="./images/platzi-conf.jpg" width="500" height="300" alt="">
       </div>
-    </section> 
- <section id="portfolio" class="portfolio">
+    </section>
+    <section id="portfolio" class="portfolio">
       <div class="container">
         <h2>Portafolio (proyectos destacados)</h2>
         <article class="proyect">
@@ -69,13 +71,16 @@
     </section>
 
     <section id="events" class="events">
+
       <div class="container">
-          <h2 class="event-list-title">Más sobre mi experiencia</h2>
+        <h2 class="event-list-title">Más sobre mi experiencia</h2>
       </div>
       <div class="event-list">
         <div class="container">
           <article class="event">
             <figure class="event-imageContainer">
+              <!--   <video class="html-video" src="images/f8.mp4" height="720" width="1200" controls></video>
+   -->
               <img class="event-image" width="500px;" src="images/platzi-conf.jpg" alt="" />
             </figure>
             <div class="event-detail">
@@ -91,8 +96,14 @@
           </article>
           <article class="event">
             <figure class="event-imageContainer">
-              <img class="event-image" width="500px;" src="images/platzi-conf.jpg" alt="" />
+                <div class="flexible-video">
+                    <iframe class="youtube-video" width="640" height="360" src="https://www.youtube.com/embed/LoKvxCSZw5w"
+                      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+                  </div>
+            <!--   <img class="event-image" width="500px;" src="images/platzi-conf.jpg" alt="" />-->
             </figure>
+
             <div class="event-detail">
               <h3 class="event-title">Platzi conf mexíco</h3>
               <p class="event-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem alias
@@ -165,7 +176,8 @@
         </p>
       </div>
     </div>
-  </footer> 
+  </footer>
+  <script src="app.js"></script>
 </body>
 
 </html>

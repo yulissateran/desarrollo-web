@@ -213,8 +213,30 @@ h1,
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.flexible-video {
+  width: 100%;
+  padding-top: 56.25%;
+  background: blue;
+  position: relative;
 
-
+}
+.youtube-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+/*  z-index: 3;*/
+ /* width: 100%;
+  height: auto;*/
+}
+.html-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
 
 .social-link{
   display: inline-block;
@@ -266,9 +288,26 @@ h1,
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+ /* background-color: rgba(0-255,,,0-1);
+  background-color: rgba(27,33,39,.8);*/
+  background-color: rgba(0,0,0,.8);
 
+  display: none;  
+  line-height: 40px !important;
+  text-align: center;
+  position: fixed;
+  z-index: 4;
+  left: 5px;
+  top: 5px;
+  color: white;
+}
 @media screen and (max-width: 1024px) {
   .hero {
+    overflow: hidden;
     height: auto;
     position: relative;
     padding: 2em;
@@ -281,7 +320,7 @@ h1,
     bottom: 0;
     top: 0;
     width: 100%;
-    overflow: hidden;
+/*    overflow: hidden;*/
   }
   h1 {
     font-size: 2em;
@@ -290,7 +329,12 @@ h1,
 }
 
 @media screen and (max-width: 767px) {
-
+  h2 {
+    font-size: 1.2em;
+  }
+  .burger-button {
+    display: block;
+  }
   .header {
     display: block;
     height: auto;
@@ -305,12 +349,32 @@ h1,
   }
   .header  a {
     justify-content: center;
+    height: 3em;
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: 5em;
   }
 
   .logo {
     text-align: center; 
   }
+.menu {
+position: fixed;
+background: rgba(5, 111, 255,.9);
+z-index: 3;
+left: -100vw;
+top: 0;
+bottom: 0;
+width: 100vw;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: .3s;
+}
 
+.menu.is-active {
+  left: 0;
+}
  .proyect {
    display: block;
  }
@@ -359,7 +423,7 @@ h1,
     font-size: 1.5em;
   }
   .proyect-details {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .event-detail {
@@ -386,230 +450,53 @@ h1,
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 320px) {
+.portfolio {
+  padding: 0px;
 }
-/* 
-reglas // el selector + la declaracoion
-selectores// etiqueta-clase-id-etc
-declaraciones// todo lo esta dentro de las llaves
-propiesdades
-valores */
-/* selector de etiqueta : header-section
- header {
-  background: pink;
-} 
-selector descendeste: selecciona
- un elemento que sea hijo de otro 
- body header div nav ol li a  {
- 
-}
- selector de clase '.'
- .link  {
- 
-}
-puedes aplicarle estilos a  todos los elementos con esa clase
-selectores de id
-sirvenpara darle estilos a un solo elemento ya que el id es único
-
-#portafolio {
-
-
-  Unidades de medida:
-  se pueden representar:
-  -palabras clave : red-blue,transparent, etc. son limitados.
-  colores sensillos
-  -hexadecimal rgba() rgb()
-  colores exactos, específicos
-se componen de cualquiera de estos 16 caractere:(hexadcimal)
-123456789ABCDEF
-
-   valor máximo(full color, luminosidadcolor ):    valor mínimo(ausencia de color ):
-   #FFFFFF       => #FFF    #0000000   => #000 
-   blanco,                    negro
-
-   dos primeros caracteres despi¿ues de #:
-   representa el rojo,
-   los dos siguientes: verde 
-   dos siguientes : blue
-
-
-   #FFOOOO rojo
-   #00ff00 verde
-   #00000FF azul
-
-  -usando hls() hlsa()
-UNIDADES DE MEDIDa
-pixel: es la menor unidad homogenea de color
- que forma parte de una imagen digital
-
- podemos usarlos para redimensionar 
- imgenes, texto,
-bordes, margenes, etc
-
-
-Fuentes personalizadas
-incluir fuentes:
- body {
-   font-family: Arial, Helvetica, sans-serif;
- }
- Arial, pcion 1
- Helvetica si no encuentra la opcion 1 
-sans-serif  indica que debe tener serifas
-
-
 h1 {
-  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.2em;
+ /* background:rgba(0,0,0,.5);*/
 }
 
-cuando el nombre tiene espacios, debe estar entre comillas
-
-Además de todas las propiedades comunes que comparten los elementos estándar de html, como: display, position, margin, padding, top, left, right, bottom, border, etc., los elementos que admiten contenidos textuales aceptan una serie particular de propiedades entre las que se encuentran las siguientes:
-
-font-family: define el tipo de fuente aplicado al texto.
-color: define el colore del texto.
- d |line-height: define la altura desde la base del texto hasta la base de la siguiente línea de texto.
-font-size: define el tamaño del texto, admite cualquiera de las unidades de medida disponibles.
-letter-spacing: define el espaciado entre las letras del texto.
-font-weight: define el ““peso”” de la letra, negrita, normal, light y normalmente se indica en múltiplos de 100 o usando keywords.
-text-decoration: define el decorado del texto como subrayado, tachado, con subrayado superior, etc.
-text-transform: permite transformar el estado de mayúsculas / minúsculas en el texto, usando uppercase para mayúsculas sostenidas, lowercase para minúsculas sostenidas, etc.
-h1 {
-   line-height: 150%;
-   line-height: 1.5;
-   line-height: 1.5em;
+.hero {
+  padding: 2em 1em;
 }
-
-h1 {
-  font-size: 40px;
-  line-height: 1.5;
-  font-weight: 400; 
-  font-weight: normal; 
-  font-weight: bold;
-  font-style: italic;
 }
 
 
-Estas son todas las herramientas (páginas, extensiones, etc) sobre colores, colorpicker, y demás, que he recopilado de los usuarios platzi que han comentado en estas clases:
-
-http://www.colorzilla.com/chrome/
-https://www.w3schools.com/colors/colors_picker.asp?color=80ced6
-https://cssgradient.io/
-https://htmlcolorcodes.com/es/
-https://www.materialpalette.com/colors
-https://materializecss.com/
-https://color.adobe.com/es/create/color-wheel/
-http://thestocks.im/?utm_source=launchers
-
-http://html-color.org/es/
-http://prettycolors.tumblr.com/add
-https://www.rapidtables.com/web/color/html-color-codes.html
-https://colorhunt.co/
-https://www.color-hex.com/
-http://annystudio.com/software/colorpicker/
-https://picpick.uptodown.com/windows/descargar
-
-https://html-color-codes.info/codigos-de-colores-hexadecimales/
-
-Color Picker para Visual Studio Code:
-https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color
- 
-
- gris oscuro : #1d252c
-  gtris claro:#626262
-  background gris:#1b2127
-  extensiones colorpicker
-  color snaper // solo funciona en MAC
-   
 
 
-  BORDES:
-  .proyect {
-  border: tamaño, tipo, estilo;
+
+
+/*  */ 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?mbde4f');
+  src:  url('fonts/icomoon.eot?mbde4f#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?mbde4f') format('truetype'),
+    url('fonts/icomoon.woff?mbde4f') format('woff'),
+    url('fonts/icomoon.svg?mbde4f#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.proyect {
-  border: 1px solid gray;
-  border-radius: 10px;
-   border-top-left-radius: 900px ;
-  background-color: #1b2127; 
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-MARGENES
-h1 {
-  margin: top right bottom left;
+.icon-menu:before {
+  content: "\e9bd";
 }
 
-   */
-/* 
-Tipos de display
-Display es la propiedad de css que indica cómo debe ser mostrado un elemento html. Todos los elementos tienen algún tipo de display. Si un elemento no se ve en pantalla es porque segurmanete su display es none.
-
-Los valores más comunes que puede recibir la propiedad display son:
-
-block: el elemento intenta abarcar todo el ancho posible.
-inline: reduce su tamaño exclusivamente hasta lo que abarca su contenido, descartando las propiedades width y height.
-inline-block: combina lo mejor de block e inline, ya que respeta las dimensiones indicadas en las propiedades width y height, pero coloca el elemento en línea (al costado) de elementos hermanos que también tengan display: inline o inline-block.
-flex: asume algunas propiedades por defecto que favorecen la alineación de los elementos internos.
-grid: similar a flex, asume algunas propiedades por defecto organizando los contenidos en filas y columnas.
-none: oculta el elemento.
-*/
-
-
-/* 
-
-FLEX:
-display que afecta eldisplay 
-del elemento con respecto a sus hijo directos
-
-propiedad paralos hijos de un elemento flex, para que el ancho de  no cambie:
-flex-shrink: 0 -1;
-0  nada encojible
-1 encojible
-
-
-flex-wrap: wrap;
-para que cuando los hijosde 
-un elelemento flex ya no quepan en unalinea, bajen a la siguiente
-Alinear elementos Horizontal:
-justify-content: flex-start- flex-end - center- 
-space-araund : espacio igual a la izquierda y derecha de cada elemento hijo
-
-space-between - el mismo espacio entre los hijos, exepto en los extremos ,
- dondeno hay nada de esppacio
-space-evenly :el mismo espacio entre todos los hijos
-
-Alinear elementos Vertical:
-align-items:  center;
-
- align-self: flex-start; 
-APRENDÍ COSAS NUEVAS:
-VERTICAL-ALIGN 
-object-fit: cover;
-line-height
-
-
-position
-
-Posicionamiento:
-satic: defecto
-
-con cualquiera que no sea static se desbloquean dos conjuntos de 
-propiedades:
-z-index --> sirve para sobreponer nuestro elemento
-top right bottom left -- > 
-sirven para mover nuestro elemento con coordenadas
-pueden ser negativo 
-left : -10px
-relativo, absoluto, fijo, static.
-
-
-fixed: se 
-absolute
-sticky 
-
-Flex: 
--flex
--flex-shrink
--
-
-*/

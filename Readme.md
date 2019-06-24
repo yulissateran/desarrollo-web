@@ -1,7 +1,4 @@
-
-
 # Curso de responsive design 
-
 
 ## DOM
  Es el acrónimo de Document Object Model o Modelo de objetos del documento, que tiene una estructura en forma de árbol. Cada elemento, atributo y pieza de texto en el HTML se convierte en un nodo DOM en la estructura de árbol.
@@ -64,9 +61,10 @@ ofrecen una coincidencia flexible
 **[attr$=val]**: Selecciona todos los elementos con el atributo attr para el cual el valor termina con val.  
 [attr*=val] : Selecciona todos los elementos con el atributo attr para el cual el valor contiene la subcadena val. (Una subcadena es simplemente parte de una cadena, por ejemplo, "cat" es una subcadena en la cadena "caterpillar".) 
 
-**Pseudo-clases** :  
+**Pseudo-clases** : 
+Es una palabra clave agregada al final de un selector, precedida por dos puntos ( : ). 
 Coinciden con uno o más elementos que existen en un cierto estado, como: 
-- Un elemento que se encuentra sobre el puntero del mouse,
+- Un elemento que sobre el que se encuentra el puntero del mouse,
 - Una casilla de verificación que actualmente está desactivada o marcada. 
 - Un elemento que es el primer elemento secundario de su padre en el árbol DOM.
 
@@ -75,10 +73,31 @@ Coincide con una o más partes del contenido que se encuentran en cierta posici�
   - La primera palabra de cada párrafo,  
   - El contenido generado que aparece justo antes de un elemento.
 
+Son palabras clave, precedidas por dos puntos ( : : ), que se pueden agregar al final de los selectores para seleccionar una parte determinada de un elemento.
+
+: :after  
+: :before  
+: :first-letter  
+: :first-line  
+: :selection  
+: :backdrop  
+
 **Combinadores** :  
 Estos no son exactamente selectores en sí mismos, sino formas de combinar dos o más selectores de manera útil para selecciones muy específicas. Entonces, por ejemplo puede seleccionar:  
   - solo los párrafos que son descendientes directos de divs.
-  - los párrafos que vienen directamente después de los encabezados.  
+  - los párrafos que vienen directamente después de los encabezados.
+
+**Lista de selección**  
+  A, B	Cualquier elemento que coincida con A y / o B .  
+**Combinador descendiente**  
+A B	Cualquier elemento que coincida con B que sea descendiente de un elemento que coincida con A (es decir, un hijo o un hijo de un hijo, etc.).  
+**Combinador de hijos**  
+A > B	Cualquier elemento que coincida con B que sea un hijo directo de un elemento que coincida con A.
+**Combinador de hermanos adyacentes**  
+A + B	Cualquier elemento que coincida con B que sea el siguiente hermano de un elemento que coincida con A .
+**Combinador  de hermanos**  
+A ~ B	Cualquier elemento que coincida con B que sea uno de los siguientes hermanos de un elemento que coincida con A.
+
 ~~~
 div > p {
   color: blue;
@@ -93,18 +112,139 @@ Se dan cuando se colocan varios selectores en la misma regla de CSS separados po
     color: red;
   }
 ~~~
+## Cascada
+CSS es una abreviatura de hojas de estilo en cascada , lo que indica que el concepto de cascada es importante.  
+En su nivel más básico, indica que el orden de las reglas CSS es importante, pero es más complejo que eso.  
+Lo que los selectores ganan en la cascada depende de tres factores (se enumeran en orden de peso):
 
-## Selectores de atributos
+- Importancia (una declaracion que tenga la palabra clave *!important* al final)
+- Especificidad  
 
-## Pseudo clases y Pseudo elementos
+- Orden de origen  
+
+
 
 ## Herencia en CSS
 
-## Modelo  de caja
+
+CSS proporciona cuatro valores de propiedad universales especiales para especificar la herencia:
+
+- inherit
+- initial
+- unset
+- revert
+
+## Modelo  de caja  
+**Nota** : Los márgenes tienen un comportamiento específico llamado colapso de márgenes : cuando dos cuadros se tocan entre sí, la distancia entre ellos es el valor del mayor de los dos márgenes que se tocan, y no su suma.  
+
+**overflow**
+Es posible que el contenido no se ajuste al tamaño permitido de un elemento, en cuyo caso el contenido desborda el cuadro. Para controlar lo que sucede en tales casos, podemos utilizar la  propiedad **overflow**. Toma varios valores posibles, pero los más comunes son:
+
+- **visible**:  
+El contenido desbordado se muestra fuera de la caja (comportamiento predeterminado).
+
+- **auto**:  
+El contenido desbordado se oculta y se muestran las barras de desplazamiento.  
+
+- **hidden**:  
+El contenido desbordado se oculta.
+
+**background-clip**
+De forma predeterminada, los fondos se extienden hasta el borde exterior del borde. Esto se puede cambiar con la propiedad **background-clip**, que toma los siguientes valores:
+
+-  **border-box** -> el fondo se extiende hasta el borde exterior del borde (*predeterminado*)
+-  **padding-box**  ->  el fondo se extiende hasta el borde exterior  del padding 
+- **content-box**  -> el fondo se extiende hasta el borde exterior contenido
+
+
+**outline**  
+Parece un borde pero no forma parte del modelo de caja. Se dibuja en la parte superior del cuadro sin cambiar el tamaño del cuadro (se dibuja fuera del borde, dentro del área del margen).
+
+**Display **
+
+
+Propiedad de css que indica cómo debe ser mostrado un elemento html. Todos los elementos tienen algún tipo de display. Si un elemento no se ve en pantalla es porque segurmanete su display es none.
+
+ El tipo de cuadro aplicado a un elemento está especificado por la propiedad **display**. valores más comunes; block, inlineyinline-block.
+
+**block** 
+- El elemento se apila sobre otros elementos.
+- Ocupa el 100% de l ancho de su elemento padre.
+- Los elementos antes y después de él se encuentran en líneas diferentes
+- Se le puede definir un ancho y alto ;
+
+**inline**  
+
+- El elemento ocupa solo el ancho y lineas necesarios para mostrar su contenido
+- Las configuraciones de ancho y alto no tienen efecto 
+- relleno, margen y borde establecido en los inlinecuadros actualizará la posición del texto circundante, pero no afectará la posición de los blockcuadros circundantes
+-  se divide en varias líneas si no hay suficiente espacio, pierde el Forma de una caja
+
+**inline-block**  
+
+- fluye con el texto circundante y otros elementos en línea sin crear saltos de línea antes y después a diferencia de un  blockcuadro, 
+- Ancho y alto configurable.
+- Mantiene su integridad de bloque como un block cuadro
+- si no hay suficiente espacio el  inline-block cuadro pasa a la segunda línea de texto mientras mantiene la forma de un cuadro
+**none**
+oculta el elemento.  
+**flex**: asume algunas propiedades por defecto que favorecen la alineación de los elementos internos.
+
+
+**grid**: similar a flex, asume algunas propiedades por defecto organizando los contenidos en filas y columnas.
+
+
+
+## Flexbox
+
+El Módulo de Caja Flexible, comúnmente llamado flexbox, 
+
+- método que  ayuda a distribuir el espacio entre los ítems de una interfaz y mejora las capacidades de alineación
+- maneja el layout de forma unidimensional, ya sea como fila o como columna.
+
+**Características de un contenedor flexible**
+
+- Es un elemento HTML 
+- Para convertirlo en contenedor flexible
+
+Esto define un contenedor flexible; En línea o bloque dependiendo del valor dado. Permite un contexto flexible para todos sus hijos directos.
+
+display que afecta el display 
+del elemento con respecto a sus hijo directos
+
+propiedad paralos hijos de un elemento flex, para que el ancho de  no cambie:
+flex-shrink: 0 -1;
+0  nada encojible
+1 encojible
+
+
+flex-wrap: wrap;
+para que cuando los hijosde 
+un elelemento flex ya no quepan en unalinea, bajen a la siguiente
+Alinear elementos Horizontal:
+justify-content: flex-start- flex-end - center- 
+space-araund : espacio igual a la izquierda y derecha de cada elemento hijo
+
+space-between - el mismo espacio entre los hijos, exepto en los extremos ,
+ dondeno hay nada de esppacio
+space-evenly :el mismo espacio entre todos los hijos
+
+Alinear elementos Vertical:
+align-items:  center;
+
+ align-self: flex-start; 
+
+Flex: 
+-flex
+-flex-shrink
+-
+
+
 
 ## Validación CSS
 
-## Combinaciones y selectores multiples
+**validador CSS:**  
+http://jigsaw.w3.org/css-validator/
 
 ## Colores CSS:
   se pueden representar de tres formas:
@@ -284,52 +424,22 @@ h1 {
   margin: top right bottom left;
 }
 
-## Tipos de display
-Display es la propiedad de css que indica cómo debe ser mostrado un elemento html. Todos los elementos tienen algún tipo de display. Si un elemento no se ve en pantalla es porque segurmanete su display es none.
-
-Los valores más comunes que puede recibir la propiedad display son:
-
-block: el elemento intenta abarcar todo el ancho posible.
-inline: reduce su tamaño exclusivamente hasta lo que abarca su contenido, descartando las propiedades width y height.
-inline-block: combina lo mejor de block e inline, ya que respeta las dimensiones indicadas en las propiedades width y height, pero coloca el elemento en línea (al costado) de elementos hermanos que también tengan display: inline o inline-block.
-flex: asume algunas propiedades por defecto que favorecen la alineación de los elementos internos.
-grid: similar a flex, asume algunas propiedades por defecto organizando los contenidos en filas y columnas.
-none: oculta el elemento. 
-
-FLEX:
-display que afecta eldisplay 
-del elemento con respecto a sus hijo directos
-
-propiedad paralos hijos de un elemento flex, para que el ancho de  no cambie:
-flex-shrink: 0 -1;
-0  nada encojible
-1 encojible
 
 
-flex-wrap: wrap;
-para que cuando los hijosde 
-un elelemento flex ya no quepan en unalinea, bajen a la siguiente
-Alinear elementos Horizontal:
-justify-content: flex-start- flex-end - center- 
-space-araund : espacio igual a la izquierda y derecha de cada elemento hijo
 
-space-between - el mismo espacio entre los hijos, exepto en los extremos ,
- dondeno hay nada de esppacio
-space-evenly :el mismo espacio entre todos los hijos
+## VIDEOS HTML5
+ 
+<video><video>
 
-Alinear elementos Vertical:
-align-items:  center;
 
- align-self: flex-start; 
-APRENDÍ COSAS NUEVAS:
+
+
+##APRENDÍ COSAS NUEVAS:
 VERTICAL-ALIGN 
 object-fit: cover;
 line-height
 overflow
 font face
-
-position
-
 ## Posicionamiento:
 satic: defecto
 
@@ -341,32 +451,9 @@ sirven para mover nuestro elemento con coordenadas
 pueden ser negativo 
 left : -10px
 relativo, absoluto, fijo, static.
-
-
 fixed: se 
 absolute
 sticky 
-
-Flex: 
--flex
--flex-shrink
--
-
-
-## VIDEOS HTML5
- 
-<video><video>
-
-
-
-
-
-
-
-
-
-
-
 Estas son todas las herramientas (páginas, extensiones, etc) sobre colores, colorpicker, y demás, que he recopilado de los usuarios platzi que han comentado en estas clases:
 
 http://www.colorzilla.com/chrome/

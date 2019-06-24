@@ -1,0 +1,8 @@
+.flex-container {
+    background-color: lightcoral;
+    display: flex;
+}
+
+.flex-item {
+    background-color: lightgreen;
+}
